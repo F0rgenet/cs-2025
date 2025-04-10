@@ -14,10 +14,19 @@
     </header>
     <main>
         <section>
-            <h2>Представление целых чисел (8 бит)</h2>
-            <label for="int-input">Введите десятичное число (от -128 до 127):</label>
-            <input type="number" id="int-input" min="-128" max="127" value="5">
+            <h2>Представление целых чисел</h2>
+            <label for="bit-length-rep">Разрядность:</label>
+            <select id="bit-length-rep">
+                <option value="8">8 бит</option>
+                <option value="16">16 бит</option>
+                <option value="32">32 бит</option>
+            </select>
+            <br><br>
+            <label for="int-input">Введите десятичное число:</label>
+            <input type="number" id="int-input" value="5">
             <button id="int-represent-btn">Показать</button>
+            <div id="int-range-info" class="info-area">Диапазон для 8 бит: от -128 до 127</div>
+
 
             <div id="representation-output" class="output-area">
                 <!-- Сюда JS будет выводить представления -->
@@ -32,7 +41,15 @@
         <hr>
 
         <section>
-            <h2>Двоичная арифметика (Дополнительный код, 8 бит)</h2>
+            <h2>Двоичная арифметика (Дополнительный код)</h2>
+             <label for="bit-length-arith">Разрядность:</label>
+            <select id="bit-length-arith">
+                <option value="8">8 бит</option>
+                <option value="16">16 бит</option>
+                <option value="32">32 бит</option>
+            </select>
+             <div id="arith-range-info" class="info-area">Диапазон для 8 бит: от -128 до 127</div>
+             <br><br>
             <label for="num1">Число 1:</label>
             <input type="number" id="num1" value="10">
             <label for="num2">Число 2:</label>

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Числа с плавающей точкой</title>
+    <title>Числа с плавающей точкой (IEEE 754)</title> <!-- Changed Title -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,27 +10,38 @@
         <nav>
              <a href="index.html">Главная</a> | <a href="integer.html">Целые</a> | <a href="converter.html">Конвертер</a>
         </nav>
-        <h1>Числа с плавающей точкой (IEEE 754 - 32 бита)</h1>
+        <!-- Title updated by JS -->
+        <h1 id="float-header">Числа с плавающей точкой (IEEE 754)</h1>
     </header>
     <main>
         <section>
-            <h2>Представление Float (32-bit)</h2>
+            <!-- Precision Selector Added -->
+            <label for="float-precision">Точность:</label>
+            <select id="float-precision">
+                <option value="32">32 бита (Single Precision)</option>
+                <option value="64">64 бита (Double Precision)</option>
+            </select>
+            <br><br>
+
+            <!-- Heading updated by JS -->
+            <h2 id="representation-header">Представление Float (32-bit)</h2>
             <label for="float-input">Введите десятичное число:</label>
             <input type="number" id="float-input" step="any" value="12.375">
             <button id="float-represent-btn">Показать</button>
 
-            <div class="explanation">
+            <!-- Explanation updated by JS -->
+            <div id="ieee754-explanation" class="explanation">
                  <p>Число представляется в виде: <b>(-1)<sup>S</sup> * 1.M * 2<sup>E-bias</sup></b></p>
-                 <p>Стандарт IEEE 754 (single-precision, 32 бита):</p>
-                 <ul>
+                 <p id="ieee-details">Стандарт IEEE 754 (single-precision, 32 бита):</p>
+                 <ul id="ieee-bits-info">
                      <li><b>S (Знак):</b> 1 бит (0 - плюс, 1 - минус)</li>
                      <li><b>E (Порядок/Экспонента):</b> 8 бит. Хранится смещенное значение (E<sub>смещ</sub> = E + bias). Для 32-бит bias = 127.</li>
-                     <li><b>M (Мантисса):</b> 23 бита. Хранится дробная часть нормализованной мантиссы (целая часть '1' подразумевается и не хранится для нормализованных чисел).</li>
+                     <li><b>M (Мантисса):</b> 23 бита. Хранится дробная часть нормализованной мантиссы (целая часть '1' подразумевается).</li>
                  </ul>
             </div>
 
             <div id="float-representation" class="output-area bit-container">
-                <!-- Визуализация битов -->
+                <!-- Визуализация битов (будет изменяться JS) -->
                 <div class="bit-group sign">
                     <span>Знак (S)</span>
                     <div id="sign-bit">?</div>
@@ -47,15 +58,17 @@
              <div id="float-details" class="output-area">
                  <!-- Сюда JS выведет детали: знак, реальная экспонента, мантисса -->
              </div>
-              <div class="explanation">
+              <div id="normalization-explanation" class="explanation">
                   <p><b>Нормализация:</b> Число приводится к виду 1.xxxxx... * 2<sup>E</sup>. '1.' отбрасывается, остальное идет в мантиссу M.</p>
-                  <p><b>Смещение экспоненты (Bias):</b> Чтобы хранить и положительные, и отрицательные порядки, к реальному порядку E прибавляют смещение (127 для 32-бит). E<sub>смещ</sub> = E + 127.</p>
+                  <p id="bias-explanation"><b>Смещение экспоненты (Bias):</b> Чтобы хранить и положительные, и отрицательные порядки, к реальному порядку E прибавляют смещение (127 для 32-бит). E<sub>смещ</sub> = E + 127.</p>
                    <p><b>Особые значения:</b> Нули, бесконечности, NaN (не число) представляются особыми комбинациями экспоненты и мантиссы.</p>
              </div>
         </section>
 
+         <!-- Interactive section might need significant JS changes -->
          <section>
             <h2>Интерактивная формула (упрощенно)</h2>
+             <p><i>Примечание: Этот раздел пока работает только для 32-бит.</i></p> <!-- Added note -->
             <p>Попробуйте изменить компоненты и увидеть результат:</p>
             <div>
                 <label for="float-s">Знак (S):</label>
@@ -67,9 +80,11 @@
             <div>
                 <label for="float-e">Реальная Экспонента (E):</label>
                 <input type="number" id="float-e" value="3" step="1">
+                 <!-- Biased E updated by JS -->
                 (Смещенная E<sub>смещ</sub> = <span id="biased-e-out">130</span>)
             </div>
             <div>
+                 <!-- Mantissa input length updated by JS -->
                 <label for="float-m">Двоичная мантисса (M, без '1.'):</label>
                 <input type="text" id="float-m" value="10001100000000000000000" maxlength="23" pattern="[01]*">
             </div>
@@ -80,6 +95,7 @@
         </section>
 
     </main>
-    <script src="float.js"></script> <!-- Понадобится более сложная логика, возможно, внешняя библиотека -->
+    <!-- Updated float.js will handle precision changes -->
+    <script src="float.js"></script>
 </body>
 </html>
