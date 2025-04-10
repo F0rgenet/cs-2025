@@ -1,55 +1,69 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    font-family: sans-serif;
-    line-height: 1.6;
+    /* font-family: sans-serif; */
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    line-height: 1.7; /* Slightly increased line height */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    /* background-color: #f4f4f4; */
+    background-color: #f8f9fa; /* Lighter background */
+    color: #495057; /* Softer text color */
 }
 
 header {
-    background-color: #333;
+    /* background-color: #333; */
+    background: linear-gradient(90deg, #4a90e2, #50e3c2); /* Gradient header */
     color: #fff;
-    padding: 1rem 0;
+    padding: 1.5rem 0; /* Increased padding */
     text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 header h1 {
     margin-bottom: 0.5rem;
+    font-weight: 700; /* Bolder heading */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 10px; /* Space between title and nav */
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px; /* Increased spacing */
 }
 
 nav a, header a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400; /* Regular weight for links */
+    transition: color 0.2s ease; /* Smooth hover */
 }
 nav a:hover, header a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    color: #e0f7fa; /* Lighter hover color */
+    text-decoration: none;
 }
 
 
 main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 960px; /* Slightly wider */
+    margin: 30px auto; /* Increased top/bottom margin */
+    padding: 30px; /* Increased padding */
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
+    border-radius: 8px; /* Rounded corners */
 }
 
 section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 40px; /* Increased spacing */
+    padding-bottom: 30px; /* Increased spacing */
+    border-bottom: 1px solid #e9ecef; /* Lighter border */
 }
 
 section:last-child {
@@ -57,109 +71,147 @@ section:last-child {
 }
 
 h1, h2, h3 {
-    color: #333;
+    /* color: #333; */
+    color: #343a40; /* Darker, less harsh headings */
+    margin-bottom: 1.5rem; /* More space below headings */
 }
 
 label {
-    display: inline-block; /* или block */
-    margin-bottom: 5px;
+    display: inline-block;
+    margin-bottom: 8px; /* More space below label */
     margin-right: 5px;
+    font-weight: 700; /* Bolder labels */
+    color: #495057;
 }
 
 input[type="number"],
 input[type="text"],
 select {
-    padding: 8px;
+    padding: 10px 12px; /* Larger padding */
     margin-right: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-bottom: 15px; /* More space below inputs */
+    border: 1px solid #ced4da; /* Lighter border */
+    border-radius: 6px; /* Slightly more rounded */
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Smooth focus */
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #80bdff; /* Highlight on focus */
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Glow effect on focus */
 }
 
 button {
-    padding: 10px 15px;
-    background-color: #5cb85c;
+    padding: 12px 20px; /* Larger padding */
+    /* background-color: #5cb85c; */
+    background-color: #4a90e2; /* Nice blue */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px; /* Match inputs */
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth transitions */
 }
 
 button:hover {
-    background-color: #4cae4c;
+    /* background-color: #4cae4c; */
+    background-color: #357abd; /* Darker blue on hover */
+    transform: translateY(-1px); /* Slight lift on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:active {
+    transform: translateY(0px); /* Press down effect */
 }
 
 .output-area {
-    margin-top: 15px;
-    padding: 15px;
-    background-color: #e9e9e9;
-    border-radius: 5px;
-    font-family: 'Courier New', Courier, monospace; /* Моноширинный шрифт для кода */
+    margin-top: 20px; /* More space above */
+    padding: 20px; /* More padding */
+    /* background-color: #e9e9e9; */
+    background-color: #e9ecef; /* Lighter gray */
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
     word-wrap: break-word;
+    font-size: 1.05em; /* Slightly larger font */
+    border: 1px solid #ced4da; /* Subtle border */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Inner shadow */
+    color: #343a40;
 }
 
 .explanation {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #eee;
-    border-left: 3px solid #5bc0de; /* Голубая линия слева */
-    font-size: 0.9em;
-    color: #555;
+    margin-top: 20px; /* More space */
+    padding: 15px;
+    background-color: #f8f9fa; /* Very light background */
+    border: 1px solid #e9ecef; /* Lighter border */
+    /* border-left: 3px solid #5bc0de; */
+    border-left: 4px solid #4a90e2; /* Match button blue */
+    border-radius: 4px;
+    font-size: 0.95em; /* Slightly larger */
+    color: #495057;
 }
 
 .explanation ul {
-    margin-top: 5px;
-    padding-left: 20px;
+    margin-top: 10px; /* More space */
+    padding-left: 25px;
 }
 
 /* Стили для битов */
 .bit-container {
     display: flex;
-    gap: 15px; /* Пространство между группами */
+    gap: 20px; /* More space between groups */
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: 15px; /* Space above bit container */
 }
 
 .bit-group {
     text-align: center;
+    margin-bottom: 10px; /* Space below group */
 }
 
 .bit-group span { /* Подпись группы */
     display: block;
-    font-size: 0.8em;
-    margin-bottom: 5px;
-    color: #666;
+    font-size: 0.85em;
+    margin-bottom: 8px; /* More space below label */
+    color: #6c757d; /* Gray label */
+    font-weight: 700;
 }
 
 .bit-group div { /* Контейнер с битами */
     display: flex;
-    gap: 2px; /* Пространство между битами */
+    gap: 3px; /* Slightly more space between bits */
     background-color: #fff;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 1.1em; /* Крупнее шрифт для битов */
-    min-height: 1.5em; /* Минимальная высота */
-    align-items: center; /* Центрируем биты, если они меньше */
+    padding: 8px 10px; /* More padding */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1.2em; /* Larger bits */
+    min-height: 1.8em;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Subtle shadow */
 }
 
-.bit-group.sign div { border-color: #d9534f; } /* Красный для знака */
-.bit-group.exponent div { border-color: #5bc0de; } /* Синий для экспоненты */
-.bit-group.mantissa div { border-color: #5cb85c; } /* Зеленый для мантиссы */
+/* More distinct colors for bit groups */
+.bit-group.sign div { border-color: #e74c3c; background-color: #fdedec; } /* Softer Red */
+.bit-group.exponent div { border-color: #3498db; background-color: #eaf5fc; } /* Softer Blue */
+.bit-group.mantissa div { border-color: #2ecc71; background-color: #eafaf1; } /* Softer Green */
 
 
 /* Стили для шагов конвертации */
 #steps-list {
     list-style-type: decimal;
-    padding-left: 25px;
+    padding-left: 30px; /* More padding */
     font-size: 0.95em;
+    margin-top: 15px; /* Space above list */
 }
 #steps-list li {
-    margin-bottom: 8px;
-    border-bottom: 1px dashed #eee;
-    padding-bottom: 5px;
+    margin-bottom: 12px; /* More space between steps */
+    border-bottom: 1px dashed #dee2e6; /* Lighter dashed border */
+    padding-bottom: 10px;
+    line-height: 1.6; /* Better line height for steps */
 }
 #steps-list li:last-child {
     border-bottom: none;
@@ -167,21 +219,25 @@ button:hover {
 
 /* Алерт для переполнения */
 .alert {
-    padding: 15px;
+    padding: 15px 20px; /* More padding */
     margin-bottom: 20px;
     border: 1px solid transparent;
-    border-radius: 4px;
-    background-color: #f2dede; /* Красный фон */
-    border-color: #ebccd1; /* Красная рамка */
-    color: #a94442; /* Темно-красный текст */
+    border-radius: 6px;
+    /* background-color: #f2dede; */
+    background-color: #f8d7da; /* Softer red background */
+    /* border-color: #ebccd1; */
+    border-color: #f5c6cb; /* Softer red border */
+    /* color: #a94442; */
+    color: #721c24; /* Darker red text */
+    font-weight: 700;
 }
 
-/* Анимация появления (пример) */
+/* Анимация появления */
 .fade-in {
   animation: fadeIn ease 0.5s;
 }
 
 @keyframes fadeIn {
-  0% { opacity:0; }
-  100% { opacity:1; }
+  0% { opacity: 0; transform: translateY(-5px); } /* Slight slide-in effect */
+  100% { opacity: 1; transform: translateY(0); }
 }
