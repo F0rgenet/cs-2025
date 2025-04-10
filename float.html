@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Числа с плавающей точкой</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <header>
+        <nav>
+             <a href="index.html">Главная</a> | <a href="integer.html">Целые</a> | <a href="converter.html">Конвертер</a>
+        </nav>
+        <h1>Числа с плавающей точкой (IEEE 754 - 32 бита)</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Представление Float (32-bit)</h2>
+            <label for="float-input">Введите десятичное число:</label>
+            <input type="number" id="float-input" step="any" value="12.375">
+            <button id="float-represent-btn">Показать</button>
+
+            <div class="explanation">
+                 <p>Число представляется в виде: <b>(-1)<sup>S</sup> * 1.M * 2<sup>E-bias</sup></b></p>
+                 <p>Стандарт IEEE 754 (single-precision, 32 бита):</p>
+                 <ul>
+                     <li><b>S (Знак):</b> 1 бит (0 - плюс, 1 - минус)</li>
+                     <li><b>E (Порядок/Экспонента):</b> 8 бит. Хранится смещенное значение (E<sub>смещ</sub> = E + bias). Для 32-бит bias = 127.</li>
+                     <li><b>M (Мантисса):</b> 23 бита. Хранится дробная часть нормализованной мантиссы (целая часть '1' подразумевается и не хранится для нормализованных чисел).</li>
+                 </ul>
+            </div>
+
+            <div id="float-representation" class="output-area bit-container">
+                <!-- Визуализация битов -->
+                <div class="bit-group sign">
+                    <span>Знак (S)</span>
+                    <div id="sign-bit">?</div>
+                </div>
+                 <div class="bit-group exponent">
+                    <span>Смещ. Экспонента (E<sub>смещ</sub>)</span>
+                     <div id="exponent-bits">????????</div>
+                </div>
+                <div class="bit-group mantissa">
+                    <span>Мантисса (M)</span>
+                    <div id="mantissa-bits">???????????????????????</div>
+                </div>
+            </div>
+             <div id="float-details" class="output-area">
+                 <!-- Сюда JS выведет детали: знак, реальная экспонента, мантисса -->
+             </div>
+              <div class="explanation">
+                  <p><b>Нормализация:</b> Число приводится к виду 1.xxxxx... * 2<sup>E</sup>. '1.' отбрасывается, остальное идет в мантиссу M.</p>
+                  <p><b>Смещение экспоненты (Bias):</b> Чтобы хранить и положительные, и отрицательные порядки, к реальному порядку E прибавляют смещение (127 для 32-бит). E<sub>смещ</sub> = E + 127.</p>
+                   <p><b>Особые значения:</b> Нули, бесконечности, NaN (не число) представляются особыми комбинациями экспоненты и мантиссы.</p>
+             </div>
+        </section>
+
+         <section>
+            <h2>Интерактивная формула (упрощенно)</h2>
+            <p>Попробуйте изменить компоненты и увидеть результат:</p>
+            <div>
+                <label for="float-s">Знак (S):</label>
+                <select id="float-s">
+                    <option value="0">0 (+)</option>
+                    <option value="1">1 (-)</option>
+                </select>
+            </div>
+            <div>
+                <label for="float-e">Реальная Экспонента (E):</label>
+                <input type="number" id="float-e" value="3" step="1">
+                (Смещенная E<sub>смещ</sub> = <span id="biased-e-out">130</span>)
+            </div>
+            <div>
+                <label for="float-m">Двоичная мантисса (M, без '1.'):</label>
+                <input type="text" id="float-m" value="10001100000000000000000" maxlength="23" pattern="[01]*">
+            </div>
+            <button id="calculate-from-components">Посчитать десятичное</button>
+            <div id="component-result" class="output-area">
+                <!-- Результат расчета по компонентам -->
+            </div>
+        </section>
+
+    </main>
+    <script src="float.js"></script> <!-- Понадобится более сложная логика, возможно, внешняя библиотека -->
+</body>
+</html>

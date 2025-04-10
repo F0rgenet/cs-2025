@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер систем счисления</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+         <nav>
+             <a href="index.html">Главная</a> | <a href="integer.html">Целые</a> | <a href="float.html">Плав. точка</a>
+        </nav>
+        <h1>Конвертер систем счисления</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Перевод чисел</h2>
+            <div>
+                <label for="conv-input">Число:</label>
+                <input type="text" id="conv-input" value="123">
+            </div>
+            <div>
+                <label for="from-base">Из системы:</label>
+                <select id="from-base">
+                    <option value="10" selected>Десятичная (10)</option>
+                    <option value="2">Двоичная (2)</option>
+                    <option value="8">Восьмеричная (8)</option>
+                    <option value="16">Шестнадцатеричная (16)</option>
+                </select>
+            </div>
+             <div>
+                <label for="to-base">В систему:</label>
+                <select id="to-base">
+                    <option value="10">Десятичная (10)</option>
+                    <option value="2" selected>Двоичная (2)</option>
+                    <option value="8">Восьмеричная (8)</option>
+                    <option value="16">Шестнадцатеричная (16)</option>
+                </select>
+            </div>
+            <button id="convert-btn">Конвертировать</button>
+
+             <div id="conversion-result" class="output-area">
+                 <!-- Результат -->
+                 Результат: <strong id="result-value"></strong>
+             </div>
+             <div id="conversion-steps" class="output-area">
+                 <h3>Шаги конвертации:</h3>
+                 <!-- Сюда JS выведет подробные шаги -->
+                 <ol id="steps-list">
+                     <li>Шаги будут показаны здесь...</li>
+                 </ol>
+             </div>
+        </section>
+          <div class="explanation">
+              <p><b>Десятичная -> Другая:</b> Целая часть: Делим на основание новой системы, запоминая остатки в обратном порядке. Дробная часть: Умножаем на основание, запоминая целые части.</p>
+              <p><b>Другая -> Десятичная:</b> Умножаем каждую цифру числа на основание системы в степени, равной позиции цифры (считая справа налево, начиная с 0), и суммируем результаты.</p>
+              <p><b>Двоичная <-> Восьмеричная:</b> Группируем биты по 3 (триады), заменяем каждую группу соответствующей восьмеричной цифрой.</p>
+              <p><b>Двоичная <-> Шестнадцатеричная:</b> Группируем биты по 4 (тетрады), заменяем каждую группу соответствующей шестнадцатеричной цифрой (0-9, A-F).</p>
+         </div>
+    </main>
+    <script src="converter.js"></script>
+</body>
+</html>
